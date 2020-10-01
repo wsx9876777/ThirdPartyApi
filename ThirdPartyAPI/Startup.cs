@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -22,7 +24,12 @@ namespace ThirdPartyAPI
 
             services.AddHttpClient<IThirdPartyService, ThirdPartyService>();
             services.AddControllers();
-            services.AddAuthentication();
+            
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,options=> {
+
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

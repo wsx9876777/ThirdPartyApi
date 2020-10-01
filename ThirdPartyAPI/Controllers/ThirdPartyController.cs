@@ -28,6 +28,9 @@ namespace ThirdPartyAPI.Controller
         [HttpGet]
         public async Task<ActionResult<ApiResult>> Get()
         {
+
+
+
             var result = new ApiResult();
             TpInfo tpInfo = new TpInfo()
             {
@@ -41,8 +44,8 @@ namespace ThirdPartyAPI.Controller
         public async Task<ActionResult<ApiResult>> GotoGame(TpInfo tpInfo)
         {
             var result = new ApiResult();
-            var data = await _thirdPartyService.GotoGameAsync(tpInfo);
-            result.Data = data;
+           // var data = await _thirdPartyService.GotoGameAsync(tpInfo);
+           // result.Data = data;
             return Ok(result);
         }
         [HttpPost]
